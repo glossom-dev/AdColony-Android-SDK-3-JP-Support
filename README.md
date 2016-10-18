@@ -8,7 +8,7 @@ https://github.com/AdColony/AdColony-Android-SDK-3
 
 
 ***
-AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与するリワードインタースティシャル広告も提供しています。
+AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与する動画リワード広告も提供しています。
 
 ###注意###
 * AdColony Android SDKの最新のバージョンは3.0.4です。
@@ -39,13 +39,13 @@ AdColonyはアプリケーションのあらゆる場所にHD動画広告を配�
 2.広告を表示するコードを実装して下さい。
 
 
-####Step 2: AdColony3.0ライブラリを読み込む####
+####Step 2: AdColonyライブラリを読み込む####
 ２つの方法がありますので、各環境に合わせて選択してください。
 
 #####1. build.gradleでレポジトリからライブラリを読み込む場合#####
 
 
-AdColony 3.0を使うために必要なMavenのレポジトリの設定を、プロジェクトのbuild.gradleに下記のように記述してください。
+AdColonyを使うために必要なMavenのレポジトリの設定を、プロジェクトのbuild.gradleに下記のように記述してください。
 
 ```
 /** 
@@ -221,7 +221,7 @@ ad.show();
 ##Showing Rewarded Interstitial Ads##
 AdColony Rewarded Interstitial Adsは<br>
 [Showing Interstitial Ads](#showing-interstitial-ads)の上で実装した動画広告を再生完了した時点で、
-ユーザに仮想通貨を付与することができるシステムです。
+ユーザにインセンティブ（仮想通貨やユーザー体験）を付与することができるシステムです。
 
 [Basics](#basics)<br>
 [Advanced Usage](#advanced-usage)
