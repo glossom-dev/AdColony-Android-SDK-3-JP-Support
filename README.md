@@ -21,6 +21,7 @@ AdColonyはアプリケーションのあらゆる場所にHD動画広告を配�
 * [Showing Videos Ads](#showing-videos-ads)
     * [Showing Interstitial Ads](#showing-interstitial-ads)
     * [Showing Rewarded Interstitial Ads](#showing-rewarded-interstitial-ads)
+* [APIリファレンス](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)
 * [よくある質問](#よくある質問)
     * [基本情報に関して](#基本情報に関して)
     * [SDK仕様に関して](#sdk仕様に関して)
