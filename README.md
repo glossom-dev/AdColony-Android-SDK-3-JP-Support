@@ -11,9 +11,9 @@ https://github.com/AdColony/AdColony-Android-SDK-3
 AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与する動画リワード広告も提供しています。
 
 ###注意###
-* AdColony Android SDKの最新のバージョンは3.0.4です。
+* AdColony Android SDKの最新のバージョンは3.0.5です。
 * 本SDKはAndroid OS 4.0(APIレベル14)から動作対象となります。
-* GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 9.4.0 を追加してください。追加しない場合表示できる広告の数は少なくなります。
+* GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 9.8.0 を追加してください。追加しない場合表示できる広告の数は少なくなります。
 
 ***
 ###Contents###
@@ -70,8 +70,8 @@ dependencies {
   /** 
    * Any other dependencies your module has are placed in this dependency configuration
    */
-  compile 'com.adcolony:sdk:3.0.4'
-  compile 'com.google.android.gms:play-services-ads:9.4.0'
+  compile 'com.adcolony:sdk:3.0.5'
+  compile 'com.google.android.gms:play-services-ads:9.8.0'
   compile 'com.android.support:support-annotations:24.2.0'
 }
 
