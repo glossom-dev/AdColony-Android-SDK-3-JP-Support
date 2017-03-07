@@ -11,9 +11,9 @@ https://github.com/AdColony/AdColony-Android-SDK-3
 AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与する動画リワード広告も提供しています。
 
 ###注意###
-* AdColony Android SDKの最新のバージョンは3.0.5です。
+* AdColony Android SDKの最新のバージョンは3.1.0です。
 * 本SDKはAndroid OS 4.0(APIレベル14)から動作対象となります。
-* GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 9.8.0 を追加してください。追加しない場合表示できる広告の数は少なくなります。
+* GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 10.0.1 を追加してください。追加しない場合表示できる広告の数は少なくなります。
 
 ***
 ###Contents###
@@ -70,9 +70,9 @@ dependencies {
   /** 
    * Any other dependencies your module has are placed in this dependency configuration
    */
-  compile 'com.adcolony:sdk:3.0.5'
-  compile 'com.google.android.gms:play-services-ads:9.8.0'
-  compile 'com.android.support:support-annotations:24.2.0'
+  compile 'com.adcolony:sdk:3.1.0'
+  compile 'com.google.android.gms:play-services-ads:10.0.1'
+  compile 'com.android.support:support-annotations:25.0.1'
 }
 
 ```
@@ -294,6 +294,7 @@ ad.show();
 ###Advanced Usage###
 [AdColonyRewardListener](#adcolonyrewardlistener)<br>
 [Pre and Post-Popups](#pre-and-post-popups)<br>
+[Rewarded App Options](#rewarded-app-options)<br>
 [Server-Side Rewards](#server-side-rewards)
 ####AdColonyRewardListener####
 Reward動画を再生した後にAdcolonyからアプリに通知します。AdColony.configureの後に追加してください。
@@ -343,6 +344,32 @@ AdColony.requestInterstitial( ZONE_ID, listener, options );
 
 
 ===
+
+####Rewarded App Options####
+以下の処理のように、configure時にAdColonyAppOptionsを渡してあげることで、サーバ上で仮想通貨の処理を行う場合に、ユーザIDをパラメータとして渡すことが可能になります。
+
+```java
+AdColonyAppOptions appOptions = new AdColonyAppOptions()
+    .setUserID("userid");
+
+/** Pass options with user id set with configure */
+AdColony.configure(this, appOptions, APP_ID, ZONE_ID);
+
+```
+
+もし、アプリの起動中にユーザIDが変更された場合(別のユーザIDでログインし直した場合など)、以下の処理を記述すればそのタイミングでサーバにパラメータとして送るユーザIDも更新することが可能です。
+
+```java
+/** Get current AdColonyAppOptions and change user id */
+AdColonyAppOptions appOptions = AdColony.getAppOptions()
+    .setUserID("newuserid");
+
+/** Send new information to AdColony */
+AdColony.setAppOptions(appOptions);
+
+```
+
+
 ####Server-Side Rewards####
 仮想通貨の付与の際に、セキュリティを上げるため、ハッシングメッセージを使用して、開発者のサーバーへ仮想通貨を処理するコールバックを提供しています。この機能を利用するためには、サーバー側でゲームのユーザに仮想通貨を付与するコールバックURLを実装する必要があります。AdcolonyからこのURLに必要なパラメーターを追加して御社のサーバーにポストバックします。そのリクエストを受けてユーザに仮想通貨を付与してください。 <br><br>
 Adcolonyはサーバー側がなくてもクライアント側のみで仮想通貨を付与することができますが、この方法は不正を完全に防げるのが困難なため推奨致しません。システム管理上のサーバーを使用できない場合、video-ad@glossom.co.jpに問い合わせて下さい。
