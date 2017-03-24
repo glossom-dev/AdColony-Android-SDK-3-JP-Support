@@ -1,7 +1,7 @@
 ![AdColony Logo and Title](assets/logo-title.png)
 
-##基本情報##
-###AdColony SDK 取得URL###
+## 基本情報 ##
+### AdColony SDK 取得URL ###
 
 * AdColony-Android-SDK 
 https://github.com/AdColony/AdColony-Android-SDK-3
@@ -10,13 +10,14 @@ https://github.com/AdColony/AdColony-Android-SDK-3
 ***
 AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与する動画リワード広告も提供しています。
 
-###注意###
+### 注意 ###
 * AdColony Android SDKの最新のバージョンは3.1.0です。
 * 本SDKはAndroid OS 4.0(APIレベル14)から動作対象となります。
 * GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 10.0.1 を追加してください。追加しない場合表示できる広告の数は少なくなります。
 
 ***
-###Contents###
+
+### Contents ###
 * [Project Setup](#project-setup)
 * [Showing Videos Ads](#showing-videos-ads)
     * [Showing Interstitial Ads](#showing-interstitial-ads)
@@ -28,10 +29,10 @@ AdColonyはアプリケーションのあらゆる場所にHD動画広告を配�
     * [動画再生に関して](#動画再生に関して)
     * [ストア申請に関して](#ストア申請に関して)
 
-##Project Setup##
+## Project Setup ##
 下記のステップに従って、AdColony SDKをアプリに導入してください。
 
-####Step 1: Adcolonyアカウント情報の取得####
+#### Step 1: Adcolonyアカウント情報の取得 ####
 
 アカウント情報の取得は、以下の通りになります。
 
@@ -40,10 +41,10 @@ AdColonyはアプリケーションのあらゆる場所にHD動画広告を配�
 2.広告を表示するコードを実装して下さい。
 
 
-####Step 2: AdColonyライブラリを読み込む####
+#### Step 2: AdColonyライブラリを読み込む ####
 ２つの方法がありますので、各環境に合わせて選択してください。
 
-#####1. build.gradleでレポジトリからライブラリを読み込む場合#####
+##### 1. build.gradleでレポジトリからライブラリを読み込む場合 #####
 
 
 AdColonyを使うために必要なMavenのレポジトリの設定を、プロジェクトのbuild.gradleに下記のように記述してください。
@@ -77,7 +78,7 @@ dependencies {
 
 ```
 
-#####2. jarファイルを手動でimportする場合#####
+##### 2. jarファイルを手動でimportする場合 #####
 
 1. [リンク](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Library)からSDKライブラリファイルをダウンロードしてください。
 2. adcolony.jarをプロジェクトのlibsフォルダに移動してください。
@@ -104,13 +105,15 @@ android {
 
 
 ***
-####Step 3: AndroidManifest.xmlの修正####
+#### Step 3: AndroidManifest.xmlの修正 ####
+
 "AndroidManifest.xml"に下記のパーミッションを追加してください。
 
 1. INTERNET
 2. ACCESS_NETWORK_STATE
 3. WRITE_EXTERNAL_STORAGE (optional)
 4. VIBRATE (optional)
+
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
@@ -129,16 +132,14 @@ android:configChanges="keyboardHidden|orientation|screenSize"
 android:hardwareAccelerated="true"/>
 ```
 
-
 ***
 
-####Step 4: Google Play Services Ads Libraryに関して####
+#### Step 4: Google Play Services Ads Libraryに関して ####
+
 [Googles developer program policies](https://play.google.com/intl/ja/about/developer-content-policy/)に則って、
 アプリが広告IDを取得するために、[Google Play Services SDK](https://developers.google.com/android/guides/setup)のAds Libraryのクラスにアクセスする必要があります。
 
-
-
-####Step 5: Pro Guardの設定####
+#### Step 5: Pro Guardの設定 ####
 下記のPro Guardの設定を追記してください。
 
 ```
@@ -149,14 +150,15 @@ android:hardwareAccelerated="true"/>
 ```
 ***
 
-##Showing Videos Ads##
+## Showing Videos Ads ##
 
-##Showing Interstitial Ads##
+## Showing Interstitial Ads ##
+
 AdColonyインタースティシャルビデオは動画に続いてエンドカードが表示される動画広告です。
 
-###Instructions###
+### Instructions ###
 [Project Setup](#project-setup)を設定した後に、以下のステップでインタースティシャル広告を表示することができます。
-####Step 1: Adcolonyの設定####
+#### Step 1: Adcolonyの設定 ####
 Adcolonyライブラリをインポートしてください。
 ```java
 import com.adcolony.sdk.*;
@@ -173,8 +175,9 @@ protected void onCreate( Bundle bundle )
 ```
 **Note:** この設定関数は**main Activity's** onCreateメソッドで **一回** 実行してください。 また、アプリケーションが実行する間このAcitivityの参照は消さないようにしてください。
 
-===
-####Step 2: 動画広告の再生####
+---
+
+#### Step 2: 動画広告の再生 ####
 手順の概要としまして、
 
 1. 再生させたいzoneIDのadの情報をリクエスト
@@ -183,6 +186,7 @@ protected void onCreate( Bundle bundle )
 となります。
 
 #####AdColonyInterstitialListenerの作成#####
+
 AdColonyInterstitialListenerには、adの状態に応じて呼ばれるコールバックを定義することができます。
 onRequestFilledはadのリクエストが成功したときに呼ばれるコールバックです。
 listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)を参照してください。
@@ -198,7 +202,7 @@ AdColonyInterstitialListener listener = new AdColonyInterstitialListener()
 };
 ```
 
-####adのリクエスト####
+#### adのリクエスト ####
 adのリクエストはrequestInterstitialのメソッドを使います。(第一引数は表示させたいadのzoneID、第二引数は上で定義したAdColonyInterstitialListener)
 
 ```java
@@ -207,7 +211,7 @@ AdColony.requestInterstitial( ZONE_ID, listener );
 
 ZONE_IDは、登録したInterstitial用のIDかつAdColony.configureの引数にパラメータとして渡しておく必要があります。
 
-####adの再生####
+#### adの再生 ####
 requestInterstitialadにより、指定したzoneIDのadのリクエストが成功した場合
 onRequestFilledが呼ばれ、その際に再生可能なadオブジェクトが引数として渡されます。
 このadオブジェクトのインスタンスメソッドのshowをcallすれば、adの再生を行うことが可能です。
@@ -219,16 +223,21 @@ ad.show();
 
 **Note:** また、これは基本の実装方法です。さらに詳細を確認していただくには、[インタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/InterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html) を参照してください。
 
-##Showing Rewarded Interstitial Ads##
+## Showing Rewarded Interstitial Ads ##
+
 AdColony Rewarded Interstitial Adsは<br>
 [Showing Interstitial Ads](#showing-interstitial-ads)の上で実装した動画広告を再生完了した時点で、
 ユーザにインセンティブ（仮想通貨やユーザー体験）を付与することができるシステムです。
 
 [Basics](#basics)<br>
 [Advanced Usage](#advanced-usage)
-###Basics###
+
+### Basics ###
+
 基本的な動画の再生方法に関しましては、インタースティシャル動画広告と同じです。
-####Step 1: Adcolonyの設定####
+
+#### Step 1: Adcolonyの設定 ####
+
 Adcolonyライブラリをインポートしてください。
 ```java
 import com.adcolony.sdk.*;
@@ -245,8 +254,10 @@ protected void onCreate( Bundle bundle )
 ```
 **Note:** この設定関数は**main Activity's** onCreateメソッドで **一回** 実行してください。 また、アプリケーションが実行する間このAcitivityの参照は消さないようにしてください。
 
-===
-####Step 2: 動画広告の再生####
+---
+
+#### Step 2: 動画広告の再生 ####
+
 手順の概要としまして、
 
 1. 再生させたいzoneIDのadの情報をリクエスト
@@ -254,7 +265,8 @@ protected void onCreate( Bundle bundle )
 
 となります。
 
-#####AdColonyInterstitialListenerの作成#####
+##### AdColonyInterstitialListenerの作成 #####
+
 AdColonyInterstitialListenerには、adの状態に応じて呼ばれるコールバックを定義することができます。
 onRequestFilledはadのリクエストが成功したときに呼ばれるコールバックです。
 listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)を参照してください。
@@ -270,7 +282,8 @@ AdColonyInterstitialListener listener = new AdColonyInterstitialListener()
 };
 ```
 
-####adのリクエスト####
+#### adのリクエスト ####
+
 adのリクエストはrequestInterstitialのメソッドを使います。(第一引数は表示させたいadのzoneID、第二引数は上で定義したAdColonyInterstitialListener)
 
 ```java
@@ -279,9 +292,8 @@ AdColony.requestInterstitial( ZONE_ID, listener );
 
 ZONE_IDは、登録したReward用のIDかつAdColony.configureの引数にパラメータとして渡しておく必要があります。
 
+#### adの再生 ####
 
-
-####adの再生####
 requestInterstitialadにより、指定したzoneIDのadのリクエストが成功した場合
 onRequestFilledが呼ばれ、その際に再生可能なadオブジェクトが引数として渡されます。
 このadオブジェクトのインスタンスメソッドのshowをcallすれば、adの再生を行うことが可能です。
@@ -290,13 +302,16 @@ onRequestFilledが呼ばれ、その際に再生可能なadオブジェクトが
 ad.show();
 ```
 
-===
-###Advanced Usage###
+---
+
+### Advanced Usage ###
 [AdColonyRewardListener](#adcolonyrewardlistener)<br>
 [Pre and Post-Popups](#pre-and-post-popups)<br>
 [Rewarded App Options](#rewarded-app-options)<br>
 [Server-Side Rewards](#server-side-rewards)
-####AdColonyRewardListener####
+
+#### AdColonyRewardListener ####
+
 Reward動画を再生した後にAdcolonyからアプリに通知します。AdColony.configureの後に追加してください。
 ```java
 AdColonyRewardListener listener = new AdColonyRewardListener()
@@ -315,8 +330,10 @@ AdColonyRewardListener listener = new AdColonyRewardListener()
 /** Set reward listener for your app to be alerted of reward events */
 AdColony.setRewardListener( listener );
 ```
-===
-####Pre and Post-Popups####
+
+---
+
+#### Pre and Post-Popups ####
 adのrequestの際に、下記のようにoptionsをパラメータとして渡してあげることで、ユーザに動画再生する前の確認メッセージ(Pre)及び成果通知の確認メッセージ(Post)を、ポップアップダイアログにて表示することが可能です。
 
 事前の確認メッセージを表示する場合
@@ -343,9 +360,9 @@ AdColony.requestInterstitial( ZONE_ID, listener, options );
 **Note:** さらに詳細を確認していただくには、[リワードインタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/RewardedInterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html) を参照してください。
 
 
-===
+---
 
-####Rewarded App Options####
+#### Rewarded App Options ####
 以下の処理のように、configure時にAdColonyAppOptionsを渡してあげることで、サーバ上で仮想通貨の処理を行う場合に、ユーザIDをパラメータとして渡すことが可能になります。
 
 ```java
@@ -354,7 +371,6 @@ AdColonyAppOptions appOptions = new AdColonyAppOptions()
 
 /** Pass options with user id set with configure */
 AdColony.configure(this, appOptions, APP_ID, ZONE_ID);
-
 ```
 
 もし、アプリの起動中にユーザIDが変更された場合(別のユーザIDでログインし直した場合など)、以下の処理を記述すればそのタイミングでサーバにパラメータとして送るユーザIDも更新することが可能です。
@@ -366,19 +382,21 @@ AdColonyAppOptions appOptions = AdColony.getAppOptions()
 
 /** Send new information to AdColony */
 AdColony.setAppOptions(appOptions);
-
 ```
 
+#### Server-Side Rewards ####
 
-####Server-Side Rewards####
 仮想通貨の付与の際に、セキュリティを上げるため、ハッシングメッセージを使用して、開発者のサーバーへ仮想通貨を処理するコールバックを提供しています。この機能を利用するためには、サーバー側でゲームのユーザに仮想通貨を付与するコールバックURLを実装する必要があります。AdcolonyからこのURLに必要なパラメーターを追加して御社のサーバーにポストバックします。そのリクエストを受けてユーザに仮想通貨を付与してください。 <br><br>
 Adcolonyはサーバー側がなくてもクライアント側のみで仮想通貨を付与することができますが、この方法は不正を完全に防げるのが困難なため推奨致しません。システム管理上のサーバーを使用できない場合、video-ad@glossom.co.jpに問い合わせて下さい。
 
-####Step 1####
+#### Step 1 ####
+
 コールバック受信のために、サーバーのURLを作成してください。このURLには認証をかけないでください。コールバックURLは、申し込み書に記載のうえGlossomにご連絡してください。
 
-===
-####Step 2####
+---
+
+#### Step 2 ####
+
 Adcolonyからサーバーへのリクエストがトランザクションに基づいた適切なものであることを確認してください。リクエストURLのフォーマットは以下になります。ただし括弧内のものはアプリやトラザクションによって動的に値が変わります。
 ```
 [http://www.yourserver.com/anypath/callback_url.php]?id=[ID]&uid=[USER_ID]&zone=[ZONE_ID]&amount=[CURRENCY_AMOUNT]&currency=[CURRENCY_TYPE]&verifier=[HASH]&open_udid=[OPEN_UDID]&udid=[UDID]&odin1=[ODIN1]&mac_sha1=[MAC_SHA1]
@@ -466,8 +484,10 @@ PRIMARY KEY (`id`)
 重複付与しないために、トラザクションidを必ず保存してください。毎回コールバックURLが呼ばれる時にトラザクションIDが重複してるかどうかをチェックしてください。既に処理された場合、再度ユーザへ付与する必要はなくレスポンスが成功した場合と同様の対応を行って下さい<br><br>
 重複チェックの後に指定したタイプ＆数量の仮想通貨をユーザに付与してください。
 
-===
-####Step 3####
+---
+
+#### Step 3 ####
+
 サーバーのレスポンスのフォーマットに関して<br>
 * "vc_success"
   * トランザクションが終了。コールバックが受信され、ユーザが入金した場合、この値を返します。
@@ -479,8 +499,8 @@ PRIMARY KEY (`id`)
 **Note:** ユーザに対して付与を行わなくて良い場合は、user_idが無効、セキュリティが通らない、トランザクションがすでに報告され重複した場合のみになりますので、これらの条件に当てはまらないユーザには必ず付与を行って下さい。
 
 
-##よくある質問##
-###基本情報に関して###
+## よくある質問 ##
+### 基本情報に関して ###
 - Q:各設定情報はどんな意味ですか
 - A:
 	- **App ID**: こちらは各アプリを指します。
@@ -488,7 +508,7 @@ PRIMARY KEY (`id`)
 	- **Call Back URL**: 動画再生の成果等を送るURLになります。設定していただかなくても本サービスはご利用頂けます。
 	- **Custom ID**: CustomIDは、mediaのユーザーidを設定していただきます。設定した値はcall backを使用する場合、custom_idとして返します。
 
-###SDK仕様に関して###
+### SDK仕様に関して ###
 - Q: 縦画面の再生は可能か？
 - A: 可能となります。
 
@@ -520,7 +540,7 @@ PRIMARY KEY (`id`)
 		- [上記以外に、他にレスポンスされる場合]
 		AdColonyは定期的に再送信行います。異常な場合以外は、こちら利用は控えて下さい。
 
-###動画再生に関して###
+### 動画再生に関して ###
 - Q: 動画再生ができない場合どうすればいいですか
 - A: 下記をチェックしてください。
 	- 正しいIDは使われているか？
@@ -543,6 +563,6 @@ PRIMARY KEY (`id`)
 	- ユーザー数が極端に少ない、リリース前もしくはリリース直後
 	- androidの場合、GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 9.4.0 を追加してください。
 
-###ストア申請に関して###
+### ストア申請に関して ###
 - Q: テスト切り替えの際の連絡はいつしたら良いか？
 - A: リリース前に担当者へ配信切り替えのご連絡をして下さい。
