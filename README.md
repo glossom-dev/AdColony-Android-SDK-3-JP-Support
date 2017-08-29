@@ -11,7 +11,7 @@ https://github.com/AdColony/AdColony-Android-SDK-3
 AdColonyはアプリケーションのあらゆる場所にHD動画広告を配信することができます。動画を再生完了した時点でユーザに仮想通貨を付与する動画リワード広告も提供しています。
 
 ### 注意 ###
-* AdColony Android SDKの最新のバージョンは3.1.0です。
+* AdColony Android SDKの最新のバージョンは3.2.0です。
 * 本SDKはAndroid OS 4.0(APIレベル14)から動作対象となります。
 * GoogleのAdvertising IDを取得するため、プロジェクトの中にGoogle Play Services 10.0.1 を追加してください。追加しない場合表示できる広告の数は少なくなります。
 
@@ -22,7 +22,7 @@ AdColonyはアプリケーションのあらゆる場所にHD動画広告を配�
 * [Showing Videos Ads](#showing-videos-ads)
     * [Showing Interstitial Ads](#showing-interstitial-ads)
     * [Showing Rewarded Interstitial Ads](#showing-rewarded-interstitial-ads)
-* [APIリファレンス](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)
+* [APIリファレンス](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.2.0/index.html)
 * [よくある質問](#よくある質問)
     * [基本情報に関して](#基本情報に関して)
     * [SDK仕様に関して](#sdk仕様に関して)
@@ -71,7 +71,7 @@ dependencies {
   /** 
    * Any other dependencies your module has are placed in this dependency configuration
    */
-  compile 'com.adcolony:sdk:3.1.0'
+  compile 'com.adcolony:sdk:3.2.0'
   compile 'com.google.android.gms:play-services-ads:10.0.1'
   compile 'com.android.support:support-annotations:25.0.1'
 }
@@ -189,7 +189,7 @@ protected void onCreate( Bundle bundle )
 
 AdColonyInterstitialListenerには、adの状態に応じて呼ばれるコールバックを定義することができます。
 onRequestFilledはadのリクエストが成功したときに呼ばれるコールバックです。
-listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)を参照してください。
+listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.2.0/index.html)を参照してください。
 
 ```java
 AdColonyInterstitialListener listener = new AdColonyInterstitialListener() 
@@ -221,7 +221,7 @@ ad.show();
 ```
 
 
-**Note:** また、これは基本の実装方法です。さらに詳細を確認していただくには、[インタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/InterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html) を参照してください。
+**Note:** また、これは基本の実装方法です。さらに詳細を確認していただくには、[インタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/InterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.2.0/index.html) を参照してください。
 
 ## Showing Rewarded Interstitial Ads ##
 
@@ -269,7 +269,7 @@ protected void onCreate( Bundle bundle )
 
 AdColonyInterstitialListenerには、adの状態に応じて呼ばれるコールバックを定義することができます。
 onRequestFilledはadのリクエストが成功したときに呼ばれるコールバックです。
-listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html)を参照してください。
+listenerの詳細は[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.2.0/index.html)を参照してください。
 
 ```java
 AdColonyInterstitialListener listener = new AdColonyInterstitialListener() 
@@ -357,7 +357,7 @@ AdColonyAdOptions options = new AdColonyAdOptions()
 AdColony.requestInterstitial( ZONE_ID, listener, options );
 ```
 
-**Note:** さらに詳細を確認していただくには、[リワードインタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/RewardedInterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.0.4/index.html) を参照してください。
+**Note:** さらに詳細を確認していただくには、[リワードインタースティシャル広告のサンプルアプリ](https://github.com/AdColony/AdColony-Android-SDK-3/tree/master/Demos/RewardedInterstitialDemo)と[API Details](https://adcolony-www-common.s3.amazonaws.com/Javadoc/3.2.0/index.html) を参照してください。
 
 
 ---
